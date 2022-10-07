@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { BiPlayCircle } from 'react-icons/bi'
 import { AiOutlineStar } from 'react-icons/ai'
+import {FiHome} from "react-icons/fi"
 import { useParams, useNavigate } from "react-router-dom"
 
 const Detail = ()=>{
@@ -93,7 +94,8 @@ const Detail = ()=>{
                                 </svg>
                             </div>
                         </div>
-                        <div className=" absolute right-3 mt-1">
+                        <div className=" absolute right-3 mt-1 flex flex-row">
+                            <FiHome onClick={() => navigate('/')} className="text-xl text-white mt-2 mr-3 cursor-pointer hover:text-gray-600"/>
                             <button className="text-red-700 hover:text-white border 
                             border-red-700 hover:bg-red-800 font-medium rounded-3xl 
                             text-sm px-7 py-2.5 text-center mr-2 mb-2" onClick={() => navigate('/login')}>Login</button>
