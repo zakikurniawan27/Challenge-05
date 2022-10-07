@@ -115,7 +115,7 @@ const Detail = ()=>{
                             <p className="flex flex-row mt-10">
                                 <AiOutlineStar className="text-2xl text-yellow-400"/> {movie.vote_average}/10
                             </p>
-                            <button className="btn btn-ghost text-white bg-red-700 font-medium rounded-3xl px-12 mt-10 " > 
+                            <button className="btn btn-ghost text-white bg-red-700 font-medium rounded-3xl px-12 mt-7 " > 
                                 <BiPlayCircle className="mr-2 text-xl"/>Watch Trailer
                             </button>
                         </div>
