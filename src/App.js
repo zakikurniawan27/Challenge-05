@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home/Home';
+import Register from './pages/Register/Register'
+import Login from './pages/Login/Login';
+import Detail from './pages/Detail/Detail'
+import AllMovie from './pages/AllMovie/AllMovie';
+import Page2 from './pages/AllMovie/Page2';
+import Page3 from './pages/AllMovie/Page3';
 
-function App() {
+const App=() => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path='/' element={<Home />}/>
+      <Route path='/detail/:id' element={<Detail />}/>
+      <Route path='/register' element={<Register/>}/>
+      <Route path='/login' element={<Login/>}/>
+      <Route path='/seeallmovie' element={<AllMovie/>}/>
+      <Route path='/seeallmovie-page2' element={<Page2/>}/>
+      <Route path='/seeallmovie-page3' element={<Page3/>}/>
+    </Routes>
   );
 }
 
