@@ -105,6 +105,7 @@ const Detail = ()=>{
                         <img src={getPosterURL(movie.backdrop_path)} alt="..." className=" w-screen h-screen opacity-[5]" />
                         <div className="absolute text-white text-left font-sans left-5 top-44 pr-[47rem]">
                             <h1 className="text-7xl font-bold">{movie.title}</h1>
+                            <p className="pt-3">{movie.release_date}</p>
                             <div className=" flex flex-row gap-3 mt-5">
                                 {movie?.genres?.map((item) => 
                                 <p className="text-xl font-semibold">
