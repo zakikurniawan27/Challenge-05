@@ -9,6 +9,8 @@ import axios from "axios"
 function Home(){
     const [movie, setMovie] = useState([])
     const [detail, setDetail] = useState([])
+    const [detail1,setDetail1] = useState([])
+    const [detail2, setDetail2] = useState([])
     const [loading, setLoading] = useState(false)
     const [search, setSearch] = useState('')
     const navigate = useNavigate()
@@ -59,6 +61,18 @@ function Home(){
                 }
             })
             setDetail(res?.data)
+            const res1 = await axios.get(`${URL}movie/810693`,{
+                params:{
+                    api_key: API_KEY
+                }
+            })
+            setDetail1(res1?.data)
+            const res2 = await axios.get(`${URL}movie/634649`,{
+                params:{
+                    api_key:API_KEY
+                }
+            })
+            setDetail2(res2?.data)
         } catch (error) {
             console.log(error)
         } finally{
@@ -72,7 +86,7 @@ function Home(){
     },[])
 
     const getPosterURL = (poster_path) =>{
-        return `https://www.themoviedb.org/t/p/w220_and_h330_face${poster_path}`
+        return `https://www.themoviedb.org/t/p/original${poster_path}`
     }
     
     return(
@@ -118,7 +132,7 @@ function Home(){
                         <button className="btn btn-ghost text-white bg-red-700 font-medium rounded-3xl px-7 " 
                         onClick={() => navigate('/register')}>Register</button>
                     </div>
-                    <img src="img/doctor-strange.jpg" alt="..." className=" w-full" />
+                    <img src={getPosterURL(detail.backdrop_path)} alt="..." className=" w-full" />
                     <div className="absolute text-white text-left font-sans left-5 top-44 pr-[47rem]">
                         <h1 className="text-7xl font-bold">{detail.title}</h1>
                         <p className="mt-5 text-2xl">
@@ -172,12 +186,11 @@ function Home(){
                         hover:bg-red-800 font-medium rounded-3xl text-sm px-7 py-2.5 text-center mr-2 mb-2">Login</button>
                         <button className="btn btn-ghost text-white bg-red-700 font-medium rounded-3xl px-7 ">Register</button>
                     </div>
-                    <img src="img/jujutsu.jpg" alt="..." className="w-full" />
+                    <img src={getPosterURL(detail1.backdrop_path)} alt="..." className="w-full" />
                     <div className="absolute text-white text-left font-sans left-5 top-44 pr-[47rem]">
-                        <h1 className="text-7xl font-bold">Jujutsu Kaisen 0</h1>
+                        <h1 className="text-7xl font-bold">{detail1.title}</h1>
                         <p className="mt-5 text-2xl">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                            {detail1.overview}
                         </p>
                         <button className="btn btn-ghost text-white bg-red-700 font-medium rounded-3xl px-12 mt-5 " > 
                             <BiPlayCircle className="mr-2 text-xl"/>Watch Trailer
@@ -225,12 +238,11 @@ function Home(){
                         <button className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 font-medium rounded-3xl text-sm px-7 py-2.5 text-center mr-2 mb-2">Login</button>
                         <button className="btn btn-ghost text-white bg-red-700 font-medium rounded-3xl px-7 ">Register</button>
                     </div>
-                    <img src="img/spiderman.jpg" alt="..." className="w-full" />
+                    <img src={getPosterURL(detail2.backdrop_path)} alt="..." className="w-full" />
                     <div className="absolute text-white text-left font-sans left-5 top-44 pr-[47rem]">
-                        <h1 className="text-7xl font-bold">Spider-Man: No Way Home</h1>
+                        <h1 className="text-7xl font-bold">{detail2.title}</h1>
                         <p className="mt-5 text-2xl">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                            {detail2.overview}
                         </p>
                         <button className="btn btn-ghost text-white bg-red-700 font-medium rounded-3xl px-12 mt-5 " > 
                             <BiPlayCircle className="mr-2 text-xl"/>Watch Trailer

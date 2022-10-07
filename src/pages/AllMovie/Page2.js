@@ -36,7 +36,7 @@ const AllMovie = ()=>{
     },[])
 
     const getPosterURL = (poster_path) =>{
-        return `https://www.themoviedb.org/t/p/w220_and_h330_face${poster_path}`
+        return `https://www.themoviedb.org/t/p/original${poster_path}`
     }
 
     return(
